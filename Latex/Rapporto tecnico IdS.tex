@@ -1,0 +1,72 @@
+
+ \title{\includegraphics[height=0.08\textheight] {logo-dipartimento.png} \\ \LARGE Progetto Ingegneria del Software \\ \normalsize Model Based Software Engineering\\ \small A.A. 2020-2021} %ATTENZIONE il  file  “logo-dipartimento.png” non è presente all’interno della directory /Figure per motivi legati alla proprietà e diffisione del logo, se si vuole compilare il file cancellare l’inserimetno dell’immagine.
+
+\author{Lorenzo Camilli}
+\date {}	
+
+\documentclass[a4paper,14pt,]{report}
+\usepackage{booktabs}
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel} 
+\usepackage{geometry} 
+%\geometry{a4paper,top=3cm,bottom=3cm, left=3cm,right=3cm, heightrounded,bindingoffset=5mm}		
+\pagestyle{plain}		
+\usepackage{graphicx}	
+\usepackage{hyperref} 
+\hypersetup{hidelinks}
+\setlength{\parindent}{0pt} 
+\usepackage{tabularx,array}
+\usepackage{float}
+\usepackage{chngcntr} 
+\counterwithout{footnote}{chapter}	
+
+
+\begin{document}
+\maketitle	
+\tableofcontents
+
+\input{Parti/1-Analisi di contesto}
+\input{Parti/2-Specifica dei requisiti}
+\input{Parti/3-Analisi}
+\input{Parti/4-Progetto}
+
+\end{document}
+
+
+\author{Lorenzo Camilli}
+\date {}	
+
+
+\documentclass[a4paper,14pt,]{report}
+\usepackage{booktabs}
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel} 
+\usepackage{geometry} 
+%\geometry{a4paper,top=3cm,bottom=3cm, left=3cm,right=3cm, heightrounded,bindingoffset=5mm}		
+\pagestyle{plain}		
+\usepackage{graphicx}	
+\usepackage{hyperref} 
+\hypersetup{hidelinks}
+\setlength{\parindent}{0pt} 
+\usepackage{tabularx,array}
+\usepackage{float}
+\usepackage{chngcntr} 
+\counterwithout{footnote}{chapter}	
+
+
+\begin{document}
+\maketitle	
+%\tableofcontents
+
+
+
+\input{Parti/1-Descrizione del sistema.tex}
+\input{Parti/2-Secnari operativi.tex}
+\input{Parti/3-Architettura di sistema.tex}
+\input{Parti/4-Requisiti di sistema.tex}
+\input{Parti/5-Risultati sperimentalitex.tex}
+
+
+\end{document}

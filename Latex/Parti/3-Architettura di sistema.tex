@@ -1,0 +1,23 @@
+\chapter*{Architettura di sistema}
+
+\par Prima di analizzare il sistema bisogna specificare alcune scelte fatte nel corso dello sviluppo:
+\begin{enumerate}
+\item Nel sistema  è presente un’unica aula con capienza pari a 100, ma è facilmente ampliabile con più aule seguendo lo stesso ragionamento.
+\item Il tempo del sistema usa come unità  di misura T=1, che viene fatto corrispondere ad un’ora, quindi tutto il tempo è calibrato su questa unità.
+\item Per rimanere concorde con le specifiche il sistema viene eseguito per una settimana ovvero 168 (${24}\cdot{7}$) unità di tempo (colpi di clock).
+\item Le probabilità vengono calcolate con seed casuali, utilizzando la libreria \textbf{Modelica.Math.Random} di Mdelica.
+\end{enumerate}
+
+\par Di seguito viene spiegata l’implementazione dei vari oggetti del sistema e il loro ruolo:
+\begin{description}
+\item [Aula:] rappresenta l’oggetto aula ed è definita tramite un blocco nel file \textit{aula.mo}. Non ha nessun input ed il suo unico scopo è quello di variare il suo stato: ha una probabilità $\frac{9}{10}$ di essere agibile ad ogni colpo di clock, i cambiamenti vengono valutati ogni 15 minuti (ovvero T=0.25), l’informazione sul suo stato viene passata al Gomp che a sua volta la passerà a Prodigit, nel caso in cui verifica che l’aula sia agibile darà la possibilità allo studente di effettuare una prenotazione o una cancellazione su di essa.
+\item [Studente:] rappresenta l’utente del sistema definito tramite un blocco nel file \textit{studente.mo}, non ha input ed ha la possibilità di richiedere una prenotazione o una cancellazine comunicando tramite una variabile di output con il sistema Prodigit, la probabilità con cui fare richiesta è di un $\frac{1}{2}$, rappresentando la suddivisione in turni delle matricole, il blocco effettua questo controllo ogni 12 minuti ovvero con T pari a 0.20.
+\item [Gomp:] rappresenta il sistema esterno dell’università e contiene varie informazioni, definito tramite un blocco nel file \textit{gomp.mo}, ottiene in input lo stato dell’aula, può variare il suo stato da \textit{operativo} (con probabilità $\frac{9}{10}$) a \textit{non operativo} e viceversa. Contiene inoltre  la capienza iniziale dell’aula che verrà aggiornata periodicamente da Prodigit.
+\item [Prodigit:] definito tramite un blocco nel file \textit{prodigit.mo}, come prima cosa controlla lo stato del sistema Gomp decidendo di conseguenza se essere operativo o meno, nel caso in cui sia disponibile controlla che siano verificate tutte le condizioni per effettuare una prenotazione (con probabilità $\frac{7}{10}$ ) oppure una cancellazione con probabilità  $\frac{3}{10}$, ciò viene fatto chiamando le funzioni appropriate, infine calcola la media dei fallimenti tramite una funzione dedicata in modo tale da passare questa informazione al monitor non funzionale.
+
+\item [Funzioni:] il sistema usufruisce di varie funzioni: per effettuare una prenotazione, andando a decrementare i posti disponibili all’interno dell’aula, una cancellazione, aumentando i posti disponibili e per il calcolo della media dei fallimenti.
+
+\item [Monitor:] tramite delle variabili prese in input verificano se il sistema riespetta i requisiti.
+
+\item [System:] questo blocco ha l’unico scopo di mettere in comunicazione i vari blocchi collegando gli input con i giusti output.
+\end{description}

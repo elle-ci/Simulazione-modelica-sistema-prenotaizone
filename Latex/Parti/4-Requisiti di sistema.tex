@@ -1,0 +1,9 @@
+\chapter*{Requisiti di sistema}
+Durante lo sviluppo mi sono preoccupato di rispettare i seguenti requisiti, di cui due funzionali ed uno non funzionale:
+\par Il rpimo requisito funzionale è quello della \textbf{Safety}, ovvero preoccuparsi di non fare mai \textit{overbooking} (cioè, prenotare per un aula un numero di studenti superiore alla capienza covid dell’aula). Questo viene rispettato grazie ad una condizione di controllo (all’interno del blocco \textbf{Prodigit}) che non permette di prenotare se nell’aula non ci sono più posti disponibili.
+\par L’altro requisito funzionale è quello della \textbf{Liveness}, finché ci sono posti disponibili per gli eventi, le richieste di prenotazione non vengono rifiutate. Anche in questo caso, come il requisito precedente, viene gestito all’interno del sistema \textbf{Prodigit} che  non permette di cancellare una prenotazione se non ci sono prenotazioni attive, ovvero se il numero di posti disponibili è uguale alla capienza originale dell’aula.\\
+ Questi requisiti vengono verificati dal monitor funzionale (nel file \textit{monitorFun.mo})  tramite una variabile booleana inizializzata a \textit{false} che  non appena il monitor rileva la violazione del requisito mette la variabile \textit{true}.\newline
+
+\par Il requisito non funzionale del sistema è il seguente: si vuole che Prodigit sia down al più per il 80\% del tempo per cui il Gomp è down. Quindi, ad esempio, se il Gomp è down per un ora al giorno, prodigit potrà essere down al più per 48 minuti al giorno.\\ 
+Viene verificato all’interno del monitor non funzionale nel file \textit{monitorNotFun}, conoscendo il numero di volte in cui Gomp è down ed il numero di volte in cui Prodigit è down ne calcola la media tramite cui controlla se il requisito è rispettato.
+ 

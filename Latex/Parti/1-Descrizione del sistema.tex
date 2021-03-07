@@ -1,0 +1,6 @@
+\chapter*{Descrizione del sistema}
+Con questo progetto, sviluppato mediante Modelica versione 1.7 affiancato a  Python 2.7 (utilizzato per verificare l’andamento del sistema su un numero elevato di iterazioni), si   vuole modellare ad alto livello un sistema di prenotazione delle aule di un’università.\\
+Gli attori in gioco nel sistema sono: le \textbf{aule}, gli \textbf{studenti} che rappresentano gli utenti finali il cui interesse principale è quello di effettuare una prenotazione o eventualmente una cancellazione di una prenotazione, il \textbf{Gomp}, un sistema esterno che ha il compito di immagazzinare e gestire varie informazioni mettendo quindi in contatto gli elementi del sistema, infine \textbf{Prodigit} l’interfaccia del sistema di prenotazione con cui interagisce lo studente, in particolare permette  di prenotare un posto in aula (se il posto è disponibile e se l’aula è agibile) o di cancellare una prenotazione  se almeno un posto nell’aula è occupato.  Il sistema inoltre contiene anche dei monitor che hanno il compito di verificare  che i requisiti vengano rispettati.
+\newline
+\par Il focus principale è quello di gestire la comunicazione tra i vari membri del sistema preoccupandosi della concordanza tra i dati e delle tempistiche di comunicazione, cercando di rendere il sistema quanto più reale e coerente possibile. 
+
