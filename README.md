@@ -24,4 +24,4 @@ Il progetot è stato scritto con <a href="https://openmodelica.org/">OpenModelic
 Per eseguire una singola iterazione con la stampa del grafico di output, spostarsi nella cartella Models e lanciare il comando <code>omc run.mos</code> e attendere la compilazione,se tutto è andato a buon fine verrà mostrato a schemro un grafico che mostra l'andamento delle varie variabili di sistema.<br>
 Per cambiare le variabili da stampare modificare all'interno del file <i>run.mos</i> l'ultima riga inserendo il nome dell'oggetto (vedere il file <i>system.mo</i>) seguito dal nome della variabile d'interesse, separati da un "." .
 Per eseguire il file più volte e verificare i requisiti eseguire <code>python verify.py</code> (per il requisito funzionale e  <code>python synt.py</code>, per quello non funzionale. <br>
-Il numero di test è determinato dalla variabile *nTest*. Verranno quindi generati dei file di output con il risultato delle varie iterazioni.
+Il numero di test è determinato dalla variabile <i>nTest</i>. Verranno quindi generati dei file di output con il risultato delle varie iterazioni.
