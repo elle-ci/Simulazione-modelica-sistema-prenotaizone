@@ -1,7 +1,7 @@
 # Simulazione in modelica sistema prenotaizone
 Per il corso di ingegneria del software si richiedeva di modellare tramite Modelica tutti gli ambienti e gli attori di un sistema per la prenotaizone delle aule.
 
-<h2>File contenuti nella cartella Models</h2>
+## File contenuti nella cartella Models
 
 <ul>
   <li> <i> aula.mo:</i> modella un'aula del sistema che può essere agibile o non agibile</li>
@@ -17,11 +17,11 @@ Per il corso di ingegneria del software si richiedeva di modellare tramite Model
   <li> <i> run.mos:</i> file per eseguire una singola simulazione </li>
   <li> <i> verify.py:</i> file Python che controlla su un certo numero di interazioni il requisito funzionale </li>
   <li> <i> synth.py:</i> file Python che controlla su un certo numero di interazioni il requisito non funzionale </li> 
-<ul>
+</ul>
   
-<h2> Come eseguire il codice </h2>  
-Il progetot è stato scritto con <a href="https://openmodelica.org/">OpenModelica 1.17</a> e Python 2.7 quindi non si assicura il funzionamento con verisoni differenti.
-Per eseguire una singola iterazione con la stampa del grafico di output, spostarsi nella cartella Models e lanciare il comando <code>omc run.mos</code> e attendere la compilazione,se tutto è andato a buon fine verrà mostrato a schemro un grafico che mostra l'andamento delle varie variabili di sistema.<br>
+## Come eseguire il codice
+Il progetto è stato scritto con <a href="https://openmodelica.org/">OpenModelica 1.17</a> e Python 2.7 quindi non si assicura il funzionamento con verisoni differenti.
+Per eseguire una singola iterazione con la stampa del grafico di output, spostarsi nella cartella Models e lanciare il comando <code>omc run.mos</code> e attendere la compilazione, se tutto è andato a buon fine verrà mostrato a schemro un grafico che mostra l'andamento delle varie variabili di sistema.<br>
 Per cambiare le variabili da stampare modificare all'interno del file <i>run.mos</i> l'ultima riga inserendo il nome dell'oggetto (vedere il file <i>system.mo</i>) seguito dal nome della variabile d'interesse, separati da un "." .
-Per eseguire il file più volte e verificare i requisiti eseguire <code>python verify.py</code> (per il requisito funzionale e  <code>python synt.py</code>, per quello non funzionale. <br>
+Per eseguire il file più volte e verificare i requisiti eseguire <code>python verify.py</code> (per il requisito funzionale) e  <code>python synt.py</code>, per quello non funzionale. <br>
 Il numero di test è determinato dalla variabile <i>nTest</i>. Verranno quindi generati dei file di output con il risultato delle varie iterazioni.
